@@ -9,8 +9,6 @@ var uploader = new JscapeRestUploader(
   secrets.domain
 );
 
-
-
 // clone and remove node and filename as args
 var args = process.argv.slice(0);
 args.shift();

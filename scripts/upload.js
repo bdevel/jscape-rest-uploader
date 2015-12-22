@@ -1,16 +1,17 @@
 var _base = require('./_base');
 
-require('request').debug = true;
-
-var localFilepath   = '/Users/tyler/Code/jscape-rest-upload/dummy.pcap';
+var localFilepath   = '/Users/tyler/Code/jscape-rest-uploader/dummy.pcap';
 //var localFilepath   = '/Users/tyler/Code/jscape-rest-upload/dummy-small.pcap';
 var targetDirectory = '/';
 var newFilename     = 'dummy.pcap';
 
 _base.uploader.login().then(function () {
-  _base.uploader.putFileRequest(localFilepath, targetDirectory, newFilename);
-  
-
+  console.log("Starting upload function");
+  var x = _base.uploader.uploadResumable(localFilepath, targetDirectory, newFilename).then(
+    () => {console.log("success");},
+    function(e) {console.log("fail", e);},
+    function(p) {console.log("progress=", p);}
+  );
   
 }, function (error) {
   console.log("Error: ", error);

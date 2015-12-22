@@ -1,14 +1,15 @@
 {
-  "name": "jscape-rest-upload",
+  "name": "jscape-rest-uploader",
   "version": "0.1.0",
   "description": "REST client for JSCAPE file server. Allows resuming multipart file uploads.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ls": "node scripts/ls.js",
+    "upload": "node scripts/upload.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bdevel/jscape-rest-upload.git"
+    "url": "https://github.com/bdevel/jscape-rest-uploader.git"
   },
   "keywords": [
     "ftp",
@@ -20,17 +21,15 @@
   "author": "Tyler Roberts",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bdevel/jscape-rest-upload/issues"
+    "url": "https://github.com/bdevel/jscape-rest-uploader/issues"
   },
-
-  "scripts": {
-    "ls":     "node scripts/ls.js",
-    "upload": "node scripts/upload.js"
-  },
-  
-  "homepage": "https://github.com/bdevel/jscape-rest-upload",
+  "homepage": "https://github.com/bdevel/jscape-rest-uploader",
   "dependencies": {
     "progress-stream": "^1.2.0",
+    "q": "^1.4.1",
     "request": "^2.67.0"
+  },
+  "devDependencies": {
+    "request-debug": "^0.2.0"
   }
 }

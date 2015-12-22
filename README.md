@@ -1,10 +1,10 @@
 
-# jscape-rest-upload
+# jscape-rest-uploader
 
 
 
 ```javascipt
-var JscapeRestUploader = require('lib/jscape-rest-uploader');
+var JscapeRestUploader = require('jscape-rest-uploader');
 var uploader = new JscapeRestUploader(
   'ftp.example.com',
   'username',
@@ -39,6 +39,17 @@ uploader.login().then(function () {
 
 ## Uploads
 
+```javascript
+uploader.putFile({
+  localFilepath: 'asdf',
+  buffer:        new Buffer('foo bar'),
+  targetDirectory: '/',
+  targetFilename: 'foo.txt'
+});
+```
+
+
+
 Resumable uploads are split into several seperate PUT requests so that
 if the connection fails the user doesn't have to start the upload from
 zero. By default the chunk size is 50MB but you can configure that if
@@ -50,8 +61,8 @@ with pre-existing files.
 
 ## Configuration
 
-* __Skip SSL validation errors:__ `JscapeRestUploader.rejectUnauthorized = false;`
-* __Set resumableUpload chunk size:__ `JscapeRestUploader.uploadChunkSize = 1024 * 5;`
+* __Skip SSL validation errors:__ `JscapeRestUploader.Config.rejectUnauthorized = false;`
+* __Set resumableUpload chunk size:__ `JscapeRestUploader.Config.uploadChunkSize = 1024 * 5;`
 
 
 
