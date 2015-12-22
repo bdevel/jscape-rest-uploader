@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "ls": "node scripts/ls.js",
-    "upload": "node scripts/upload.js"
+    "upload": "node scripts/upload.js",
+    "delete": "node scripts/delete.js"
   },
   "repository": {
     "type": "git",
