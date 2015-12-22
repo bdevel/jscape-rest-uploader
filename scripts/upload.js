@@ -1,16 +1,19 @@
 var _base = require('./_base');
+var fs    = require('fs');
 
-var localFilepath   = '/Users/tyler/Code/jscape-rest-uploader/dummy.pcap';
-//var localFilepath   = '/Users/tyler/Code/jscape-rest-upload/dummy-small.pcap';
-var targetDirectory = '/';
-var newFilename     = 'dummy.pcap';
+var localFilepath   = _base.args[0];
+var targetDirectory = _base.args[1] || '/';
+var newFilename     = _base.args[2] || localFilepath.split('/').reverse()[0];
 
 _base.uploader.login().then(function () {
-  console.log("Starting upload function");
+  console.log(`Uploading ${localFilepath} to ${targetDirectory}/${newFilename}`);
+  
   var x = _base.uploader.uploadResumable(localFilepath, targetDirectory, newFilename).then(
-    () => {console.log("success");},
-    function(e) {console.log("fail", e);},
-    function(p) {console.log("progress=", p);}
+    () => {console.log("COMPLETED");},
+    function(e) {console.log("FAILURE:", e);},
+    function(p) {
+      console.log(Math.round(p.percent * 1000)/ 10 + `%\t${p.sent} / ${p.total}`);
+    }
   );
   
 }, function (error) {
@@ -18,6 +21,3 @@ _base.uploader.login().then(function () {
 }).catch(function(e){
   console.log("Exception: ", e);
 });
-
-
-console.log("Done!");

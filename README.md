@@ -88,3 +88,5 @@ You can change your shell NODE_PATH to include the directory where secrets.js ca
 export NODE_PATH=".:./config"
 ```
 
+### Test files
+To make a dummy test file to upload try `openssl rand -out dummy-md.pcap -base64 $((250000000 * 3/4))` to make a 250MB file.
