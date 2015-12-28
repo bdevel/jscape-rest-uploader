@@ -1,5 +1,5 @@
 
 
-module.exports = require('./jscape-rest-uploader');
+module.exports = require('./lib/jscape-rest-uploader');
 
 

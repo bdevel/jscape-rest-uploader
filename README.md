@@ -3,7 +3,7 @@
 
 Node.js REST client for JSCAPE file server. Allows resuming multipart file uploads.
 
-```javascipt
+```javascript
 var JscapeRestUploader = require('jscape-rest-uploader');
 var uploader = new JscapeRestUploader(
   'ftp.example.com',

@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/bdevel/jscape-rest-uploader",
   "dependencies": {
-    "progress-stream": "^1.2.0",
     "q": "^1.4.1",
     "request": "^2.67.0"
   },
