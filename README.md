@@ -58,6 +58,24 @@ The code will look for a file with the same name as
 `targetFilename` inside `targetDirectory`. Care should be taken so that you don't have collisions
 with pre-existing files.
 
+
+### Upload Buffers
+You can also send a buffer instead of a file path with `uploadBuffer()`. This is usefull for
+creating a json file without writing to the local disk.
+
+```javascript
+// You can also login, wait, then upload
+uploader.login().then(function () {
+  var jsonBuffer = new Buffer('{"fromBuffer": true}');
+  uploader.uploadBuffer(jsonBuffer, targetDirectory, newFilename).then(
+    () => {console.log("COMPLETED");},
+  );
+}, function (error) {
+
+});
+
+```
+
 ## Configuration
 
 * __Skip SSL validation errors:__ `JscapeRestUploader.Config.rejectUnauthorized = false;`
@@ -68,8 +86,8 @@ with pre-existing files.
 ## Scripts
 
 * **Directory listing:** With npm, `npm run-script ls / -l` or with node, `node scripts/ls.js /remote-dir`
-* **Upload file:** `npm run-script upload photo.jpg /destination`
-* **Delete file:** `npm run-script delete /destination/photo.jpg`
+* **Upload file:** `npm run-script source.jpg final.jpg /destination`
+* **Delete file:** `npm run-script delete /destination/final.jpg`
 
 These scripts will authenticate by looking for a `secrets.js` file that looks like this:
 
