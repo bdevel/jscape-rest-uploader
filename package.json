@@ -1,6 +1,6 @@
 {
   "name": "jscape-rest-uploader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "REST client for JSCAPE file server. Allows resuming multipart file uploads.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,8 @@
   "homepage": "https://github.com/bdevel/jscape-rest-uploader",
   "dependencies": {
     "q": "^1.4.1",
-    "request": "^2.67.0"
+    "request": "^2.67.0",
+    "progress-stream": "^1.2.0"
   },
   "devDependencies": {
     "request-debug": "^0.2.0"

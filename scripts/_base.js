@@ -1,5 +1,5 @@
-var JscapeRestUploader = require('lib/jscape-rest-uploader');
-var secrets            = require('secrets.js');
+var JscapeRestUploader = require('../lib/jscape-rest-uploader');
+var secrets            = require('./secrets.js');
 
 JscapeRestUploader.rejectUnauthorized = false;
 var uploader = new JscapeRestUploader(

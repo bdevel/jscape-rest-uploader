@@ -39,7 +39,7 @@ uploader.login().then(function () {
     () => {console.log("COMPLETED");},
     function(e) {console.log("FAILURE:", e);},
     function(p) {
-      console.log(Math.round(p.percent * 1000)/ 10 + `%\t${p.sent} / ${p.total}`);
+      console.log(p.percentage + `%\t${p.transferred} / ${p.length}`);
     }
   );  
 }, function (error) {
@@ -86,7 +86,7 @@ uploader.login().then(function () {
 ## Scripts
 
 * **Directory listing:** With npm, `npm run-script ls / -l` or with node, `node scripts/ls.js /remote-dir`
-* **Upload file:** `npm run-script source.jpg final.jpg /destination`
+* **Upload file:** `npm run-script upload source.jpg final.jpg /destination`
 * **Delete file:** `npm run-script delete /destination/final.jpg`
 
 These scripts will authenticate by looking for a `secrets.js` file that looks like this:
