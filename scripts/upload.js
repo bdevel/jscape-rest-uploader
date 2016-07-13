@@ -12,7 +12,7 @@ _base.uploader.login().then(function () {
     () => {console.log("COMPLETED");},
     function(e) {console.log("FAILURE:", e);},
     function(p) {
-      console.log(Math.round(p.percentage * 1000)/ 10 + `%\t${p.transferred} / ${p.length}`);
+      console.log(Math.round(p.percentage) + `%\t${p.transferred} / ${p.length}`);
     }
   );
   
